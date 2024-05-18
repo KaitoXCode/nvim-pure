@@ -1,7 +1,6 @@
 require("kaitoxpure.plugins-setup")
 require("kaitoxpure.core.options")
 require("kaitoxpure.core.keymaps")
-require("kaitoxpure.core.colorscheme")
 require("kaitoxpure.plugins.comment")
 require("kaitoxpure.plugins.nvim-tree")
 require("kaitoxpure.plugins.lualine")
