@@ -71,6 +71,17 @@ return packer.startup(function(use)
   use("L3MON4D3/LuaSnip")
   use("saadparwaiz1/cmp_luasnip")
   use("rafamadriz/friendly-snippets")
+
+  -- LSP
+  -- manage + install lsp servers
+  use("williamboman/mason.nvim")
+  use("williamboman/mason-lspconfig.nvim") -- link mason with below
+  -- configure lsp servers
+  use("neovim/nvim-lspconfig")
+  use("hrsh7th/cmp-nvim-lsp") -- configure lsp to apear in auto complete
+  use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced ui for lsp
+  use("onsails/lspkind.nvim") -- better icons for autocomplete window
+
   if packer_bootstrap then
     require("packer").sync()
   end
