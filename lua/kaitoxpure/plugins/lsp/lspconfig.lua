@@ -103,22 +103,15 @@ return {
         })
       end,
       ["gopls"] = function()
-        -- options go server
-        lspconfig["gopls"].opts({
-          servers = {
-            gopls = {
-              keys = {
-                -- Workaround for the lack of a DAP strategy in neotest-go: https://github.com/nvim-neotest/neotest-go/issues/12
-                { "<leader>td", "<cmd>lua require('dap-go').debug_test()<CR>", desc = "Debug Nearest (Go)" },
-              },
-            },
-          },
-        })
         -- configure go server
         lspconfig["gopls"].setup({
           capabilities = capabilities,
           filetypes = { "go", "gomod", "gowork", "gotmpl" },
           root_dir = require("lspconfig/util").root_pattern("go.work", "go.mod", ".git"),
+          keys = {
+            -- Workaround for the lack of a DAP strategy in neotest-go: https://github.com/nvim-neotest/neotest-go/issues/12
+            { "<leader>td", "<cmd>lua require('dap-go').debug_test()<CR>", desc = "Debug Nearest (Go)" },
+          },
           settings = {
             gopls = {
               gofumpt = true,
