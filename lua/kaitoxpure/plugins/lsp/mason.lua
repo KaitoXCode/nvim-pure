@@ -53,8 +53,8 @@ return {
         -- bash
         --   "pkgbuild_language_server",
         -- c/c++
-        "clangd",
-        "cmake",
+        -- "clangd",
+        -- j"cmake",
         -- web
         --   "cssls",
         --   "html",
