@@ -5,6 +5,6 @@ return {
   "tpope/vim-fugitive", -- git integration
   "Pocco81/DAPInstall.nvim", -- debugging
   "theHamsta/nvim-dap-virtual-text", -- debugging
-  "rcarriga/nvim-dap-ui",
-  "nvim-telescope/telescope-dap.nvim",
+  "rcarriga/nvim-dap-ui", -- debugging
+  "nvim-telescope/telescope-dap.nvim", -- debugging
 }
