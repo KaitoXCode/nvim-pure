@@ -1,3 +1,5 @@
+vim.cmd("let g:netrw_liststyle = 3")
+
 local opt = vim.opt -- for conciseness
 
 -- line number
@@ -35,5 +37,3 @@ opt.clipboard:append("unnamedplus") -- use sys clipboard
 -- split windows
 opt.splitright = true
 opt.splitbelow = true
-
-opt.iskeyword:append("-") -- concider "-" as part of word
