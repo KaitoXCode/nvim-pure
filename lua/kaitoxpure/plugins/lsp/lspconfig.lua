@@ -106,7 +106,7 @@ return {
         -- configure go server
         lspconfig["gopls"].setup({
           capabilities = capabilities,
-          filetypes = { "go", "gomod", "gowork", "gotmpl" },
+          filetypes = { "go", "gomod", "gowork" },
           root_dir = require("lspconfig/util").root_pattern("go.work", "go.mod", ".git"),
           keys = {
             -- Workaround for the lack of a DAP strategy in neotest-go: https://github.com/nvim-neotest/neotest-go/issues/12
