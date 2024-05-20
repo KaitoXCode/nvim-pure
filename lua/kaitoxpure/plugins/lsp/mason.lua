@@ -44,7 +44,7 @@ return {
         -- make
         "autotools_ls",
         -- markdown
-        "markdown_oxide",
+        -- "markdown_oxide",
         -- python
         "pylyzer",
         "pylsp",
