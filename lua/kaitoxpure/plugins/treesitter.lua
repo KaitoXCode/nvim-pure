@@ -40,7 +40,7 @@ return {
         "gomod",
         "gosum",
         "gowork",
-        "gotmpl",
+        -- "gotmpl", -- not maintained
         "templ",
         "java",
         "python",
