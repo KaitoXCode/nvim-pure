@@ -39,7 +39,6 @@ return {
       -- list of servers for mason to install
       ensure_installed = {
         -- all
-        "snyk_ls",
         "typos_lsp",
         -- make
         "autotools_ls",
