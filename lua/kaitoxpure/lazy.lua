@@ -11,7 +11,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "kaitoxpure.plugins" }, { import = "kaitoxpure.plugins.lsp" } }, {
+require("lazy").setup({
+  { import = "kaitoxpure.plugins" },
+  { import = "kaitoxpure.plugins.lsp" },
+  { import = "kaitoxpure.plugins.dap" },
+}, {
   checker = {
     enabled = true,
     notify = false,
