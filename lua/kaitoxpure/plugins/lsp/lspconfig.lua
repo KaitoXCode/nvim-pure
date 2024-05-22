@@ -16,6 +16,31 @@ return {
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
+    -- add better breakpoints
+    local dap_breakpoint = {
+      error = {
+        text = "🟧",
+        texthl = "LspDiagnosticsSignError",
+        linehl = "",
+        numhl = "",
+      },
+      rejected = {
+        text = "❌",
+        texthl = "LspDiagnosticsSignHint",
+        linehl = "",
+        numhl = "",
+      },
+      stopped = {
+        text = "❎",
+        texthl = "LspDiagnosticsSignInformation",
+        linehl = "DiagnosticUnderlineInfo",
+        numhl = "LspDiagnosticsSignInformation",
+      },
+    }
+    vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
+    vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
+    vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
+
     local keymap = vim.keymap -- for conciseness
 
     vim.api.nvim_create_autocmd("LspAttach", {
