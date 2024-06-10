@@ -32,6 +32,8 @@ return {
         "gomodifytags",
         "gotests",
         "nilaway",
+        -- python
+        "debugpy",
       },
     })
 
@@ -45,7 +47,8 @@ return {
         -- markdown
         -- "markdown_oxide",
         -- python
-        "pylyzer",
+        "pyright",
+        -- "pylyzer",
         "pylsp",
         -- lua
         "lua_ls",
@@ -88,6 +91,7 @@ return {
         "revive",
         "staticcheck",
         -- python
+        "ruff",
         "isort",
         "black",
         "pylint",
