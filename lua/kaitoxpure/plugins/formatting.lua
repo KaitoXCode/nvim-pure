@@ -20,7 +20,7 @@ return {
         python = { "ruff", "isort", "black" },
         go = {
           "gofumpt",
-          "goimports",
+          "goimports-reviser",
           "golines",
         },
       },
@@ -28,6 +28,11 @@ return {
         lsp_fallback = true,
         async = false,
         timeout_ms = 1000,
+      },
+      formatters = {
+        golines = {
+          args = { "--max-len=150" },
+        },
       },
     })
 
