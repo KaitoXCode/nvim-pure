@@ -1,3 +1,18 @@
+local function set_python_path(path)
+  local clients = require("lspconfig.util").get_lsp_clients({
+    bufnr = vim.api.nvim_get_current_buf(),
+    name = "pyright",
+  })
+  for _, client in ipairs(clients) do
+    if client.settings then
+      client.settings.python = vim.tbl_deep_extend("force", client.settings.python, { pythonPath = path })
+    else
+      client.config.settings = vim.tbl_deep_extend("force", client.config.settings, { python = { pythonPath = path } })
+    end
+    client.notify("workspace/didChangeConfiguration", { settings = nil })
+  end
+end
+
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
@@ -5,8 +20,12 @@ return {
     "hrsh7th/cmp-nvim-lsp", -- autocompletion
     { "antosha417/nvim-lsp-file-operations", config = true }, -- eg mod imports when file renamed
     { "folke/neodev.nvim", opts = {} }, -- improved lua setup for working on nvim config
+    { "j-hui/fidget.nvim", tag = "legacy", opts = {} }, -- status updates for LSP
   },
   config = function()
+    -- steup neodev
+    require("neodev").setup()
+
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
 
@@ -123,6 +142,56 @@ return {
               completion = {
                 callSnippet = "Replace",
               },
+            },
+          },
+        })
+      end,
+      ["pylsp"] = function()
+        -- configure python server
+        lspconfig["pylsp"].setup({
+          capabilities = capabilities,
+          plugins = {
+            -- formatter options
+            black = { enabled = true },
+            autopep8 = { enabled = false },
+            yapf = { enabled = false },
+            -- linter options
+            pylint = { enabled = true, executable = "pylint" },
+            pyflakes = { enabled = false },
+            pycodestyle = { enabled = false },
+            -- type checker
+            pylsp_mypy = { enabled = true },
+            -- auto-completion options
+            jedi_completion = { fuzzy = true },
+            -- import sorting
+            pyls_isort = { enabled = true },
+          },
+        })
+      end,
+      ["pyright"] = function()
+        -- configure python server
+        lspconfig["pyright"].setup({
+          capabilities = capabilities,
+          filetypes = { "python" },
+          root_dir = require("lspconfig.util").root_pattern("venv", ".venv", ".git", "requirements.txt", "setup.py"),
+          -- keys = {},
+          single_file_support = true,
+          settings = {
+            python = {
+              analysis = {
+                extraPaths = { "/home/uwumaster69/projects/armadillo" }, -- /armadillo
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "openFilesOnly",
+              },
+            },
+          },
+          commands = {
+            PyrightSetPythonPath = {
+              set_python_path,
+              description = "Reconfigure pyright with the provided python path",
+              nargs = 1,
+              complete = "file",
             },
           },
         })
