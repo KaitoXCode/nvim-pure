@@ -17,7 +17,7 @@ return {
         yaml = { "prettier" },
         markdown = { "prettier" },
         lua = { "stylua" },
-        python = { "isort", "black" },
+        python = { "ruff", "isort", "black" },
         go = {
           "gofumpt",
           "goimports",
