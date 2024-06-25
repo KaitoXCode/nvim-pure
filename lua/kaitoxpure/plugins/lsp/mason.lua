@@ -91,7 +91,7 @@ return {
         "revive",
         "staticcheck",
         -- python
-        "ruff",
+        -- "ruff",
         "isort",
         "black",
         "pylint",
