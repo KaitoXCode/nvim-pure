@@ -76,6 +76,16 @@ return {
         { "<leader>pdc", function() require('dap-python').test_class() end, desc = "Debug Class", ft = "python" },
       },
       config = function()
+        local dap = require("dap")
+        dap.configurations.python = {
+          type = "python",
+          request = "launch",
+          name = "Launch file",
+          program = "${file}",
+          pythonPath = function()
+            return ".venv/bin/activate"
+          end,
+        }
         local path = require("mason-registry").get_package("debugpy"):get_install_path()
         require("dap-python").setup(path .. "/venv/bin/python")
       end,

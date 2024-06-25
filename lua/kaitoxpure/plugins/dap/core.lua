@@ -70,6 +70,9 @@ return {
         },
       },
     },
+    {
+      require("kaitoxpure.plugins.dap.go"),
+    },
   },
 
   -- stylua: ignore
