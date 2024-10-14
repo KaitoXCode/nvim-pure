@@ -250,6 +250,27 @@ return {
           },
         })
       end,
+      ["templ"] = function()
+        -- configure
+        lspconfig["templ"].setup({
+          capabilities = capabilities,
+          filetypes = { "html", "templ" },
+        })
+      end,
+      ["html"] = function()
+        -- configure
+        lspconfig["html"].setup({
+          capabilities = capabilities,
+          filetypes = { "html", "templ" },
+        })
+      end,
+      ["htmx"] = function()
+        -- configure
+        lspconfig["htmx"].setup({
+          capabilities = capabilities,
+          filetypes = { "html", "templ" },
+        })
+      end,
     })
   end,
 }

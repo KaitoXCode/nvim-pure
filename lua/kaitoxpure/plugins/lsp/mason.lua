@@ -72,6 +72,8 @@ return {
         -- go
         "gopls",
         "templ",
+        "html",
+        "htmx",
         -- java
         "jdtls",
         --   "java_language_server",
