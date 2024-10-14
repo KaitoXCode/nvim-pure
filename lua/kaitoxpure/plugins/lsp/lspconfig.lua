@@ -146,6 +146,12 @@ return {
           },
         })
       end,
+      ["jdtls"] = function()
+        lspconfig["jdtls"].setup({
+          capabilities = capabilities,
+          filetypes = { "java" },
+        })
+      end,
       ["pylsp"] = function()
         -- configure python server
         lspconfig["pylsp"].setup({

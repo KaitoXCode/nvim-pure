@@ -34,6 +34,9 @@ return {
         "nilaway",
         -- python
         "debugpy",
+        -- java
+        "java-debug-adapter",
+        "java-test",
       },
     })
 
@@ -70,7 +73,7 @@ return {
         "gopls",
         "templ",
         -- java
-        --   "jdtls",
+        "jdtls",
         --   "java_language_server",
       },
     })
