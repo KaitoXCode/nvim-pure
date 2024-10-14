@@ -11,7 +11,7 @@ return {
       javascriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
       python = { "pylint" },
-      go = { "golangci-lint" },
+      -- go = { "golangci-lint" },
       java = { "checkstyle" },
     }
 

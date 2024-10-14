@@ -25,6 +25,7 @@ return {
       },
       ensure_installed = {
         -- go
+        "delve",
         "gotestsum",
         "iferr",
         "impl",
@@ -89,8 +90,9 @@ return {
         "stylua",
         -- go
         "gofumpt",
-        "goimports",
+        "goimports-reviser",
         "golines",
+        -- "golangci-lint",
         -- docker
         "hadolint",
         "revive",
