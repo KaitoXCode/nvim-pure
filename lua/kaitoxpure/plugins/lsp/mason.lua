@@ -48,8 +48,8 @@ return {
         -- "markdown_oxide",
         -- python
         "pyright",
-        -- "pylyzer",
         "pylsp",
+        -- "pylyzer",
         -- lua
         "lua_ls",
         -- bash

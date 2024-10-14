@@ -72,6 +72,7 @@ return {
     },
     {
       require("kaitoxpure.plugins.dap.go"),
+      require("kaitoxpure.plugins.dap.python"),
     },
   },
 

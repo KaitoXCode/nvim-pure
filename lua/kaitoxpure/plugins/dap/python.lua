@@ -54,12 +54,17 @@ return {
     optional = true,
     dependencies = {
       "nvim-neotest/neotest-python",
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
     },
     opts = {
       adapters = {
         ["neotest-python"] = {
           -- Here you can specify the settings for the adapter, i.e.
-          -- runner = "pytest",
+          dap = { justMyCode = false },
+          runner = "pytest",
           -- python = ".venv/bin/python",
         },
       },
@@ -78,13 +83,15 @@ return {
       config = function()
         local dap = require("dap")
         dap.configurations.python = {
-          type = "python",
-          request = "launch",
-          name = "Launch file",
-          program = "${file}",
-          pythonPath = function()
-            return ".venv/bin/activate"
-          end,
+          {
+            type = "python",
+            request = "launch",
+            name = "Launch file: beep",
+            program = "${file}",
+            pythonPath = function()
+              return ".venv/bin/activate"
+            end,
+          },
         }
         local path = require("mason-registry").get_package("debugpy"):get_install_path()
         require("dap-python").setup(path .. "/venv/bin/python")
