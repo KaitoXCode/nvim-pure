@@ -20,3 +20,5 @@ keymap.set("n", "<leader>Tp", "<cmd>tabp<CR>") -- go to prev tab
 keymap.set("n", "<leader>Tf", "<cmd>tabnew %<CR>") -- mv buffer to next tab
 
 keymap.set("n", ";", ":") -- easier cmd mode
+
+keymap.set("n", "<leader>fj", ":%!jq '.'<CR>") -- format current json file
