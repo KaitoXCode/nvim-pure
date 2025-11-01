@@ -1,17 +1,13 @@
 return {
   "williamboman/mason.nvim",
+  version = "v1.10.0",
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    {"williamboman/mason-lspconfig.nvim", version="v1.31.0" },
+    {"WhoIsSethDaniel/mason-tool-installer.nvim", version="v2.11.0" },
   },
   config = function()
-    -- import mason
     local mason = require("mason")
-
-    -- import mason-lspconfig
     local mason_lspconfig = require("mason-lspconfig")
-
-    -- import mason-tool-installer
     local mason_tool_installer = require("mason-tool-installer")
 
     -- enable mason and configure icons
@@ -23,22 +19,22 @@ return {
           package_uninstalled = "✗",
         },
       },
-      ensure_installed = {
-        -- go
-        "delve",
-        "gotestsum",
-        "iferr",
-        "impl",
-        "json-to-struct",
-        "gomodifytags",
-        "gotests",
-        "nilaway",
-        -- python
-        "debugpy",
-        -- java
-        "java-debug-adapter",
-        "java-test",
-      },
+      -- ensure_installed = {
+      --   -- go
+      --   "delve",
+      --   "gotestsum",
+      --   "iferr",
+      --   "impl",
+      --   "json-to-struct",
+      --   "gomodifytags",
+      --   "gotests",
+      --   "nilaway",
+      --   -- python
+      --   "debugpy",
+      --   -- java
+      --   "java-debug-adapter",
+      --   "java-test",
+      -- },
     })
 
     mason_lspconfig.setup({
@@ -103,6 +99,8 @@ return {
         "black",
         "pylint",
       },
+    auto_update = false, -- disable auto updates for stability
+    run_on_start = true, -- ensures tools installed automatically on start up
     })
   end,
 }
